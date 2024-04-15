@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!--
+	어노테이션 지정 방법
+	1. Namespace(config파일의 하위 시트에 Namespace가 있다.) 에 가서 context를 추가
+	2. <context:annotation-cofig /> 추가
+	3. <context:component-scan base-package="어노테이션할 패키지를 지정" /> 추가
+	4. 해당 클래스 위에서 annotation하면 된다.
+		** ID 부여를 하지 않으면 자동으로 해당클래스의 이름을 사용한다.(단, 첫글자가 소문자가 된다.)
+	
+	일반적인 클래스를 객체로 만들 때 사용하는 annotation
+		// 일반적인 상황에서 사용
+		1. @Component[(id명)] : 가장 상위 클래스
+		
+		// Spring MVC패턴에서 사용
+		2. @Service[(id명)] : 비즈니스 레이어를 처리하는 클래스에 사용 (MVC 패턴에서 서비스(모듈)에 해당하는 클래스에 붙여준다.)
+		3. @Repository[(id명)] : DAO 에서 처리하는 클래스에 사용 (MVC 패턴에서 맵퍼에 해당하는 클래스에 붙여준다.)
+		4. @Controller[(id명)] : Controller에 해당하는 클래스에 사용(MVC 패턴에서 Controller에 해당하는 클래스에 붙여준다.)
+			** ID 부여를 하지 않으면 자동으로 해당클래스의 이름을 사용한다.(단, 첫글자가 소문자가 된다.)
+	-->
+	
+	<!-- 1. 어노테이션을 사용하겠다는 것 -->
+	<context:annotation-config />
+	
+	<!-- 2. 지정한 패키지에 있는 클래스들을 스캔해서 어노테이션을 확인하는 기능 -->
+	<context:component-scan base-package="com.ict.ex05"/>
+	
+	<!-- 3. MyProcess 클래스에 가서 @Component[(id명)]를 사용한다. -->
+	
+</beans>

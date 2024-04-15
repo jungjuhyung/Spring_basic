@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="mp1" class="com.ict.ex03.MyProcess"/>
+	
+	<bean id="mp2" class="com.ict.ex03.MyProcess">
+		<!-- 필드값을 이용한 생성자는 name, value를 통해 넣어준다. -->
+		<constructor-arg name="name" value="일지매" />
+		<constructor-arg name="age" value="42" />
+	</bean>
+	
+	<bean id="mp3" class="com.ict.ex03.MyProcess">
+		<property name="name" value="장길산"></property>
+		<property name="age" value="32"></property>
+	</bean>
+</beans>
